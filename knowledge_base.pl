@@ -95,4 +95,5 @@ all_different([H|T]) :- member(H, T), !, fail.
 all_different([_|T]) :- all_different(T).
 all_different([_]).
 
-member([_, _, _, _], Quadruples)
+tell(W, X, Y, Z) :- write(W), write(' bought '), write(X),write(' roses and '), 
+write(Y),write(' for a '), write(Z), nl.
