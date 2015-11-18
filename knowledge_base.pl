@@ -53,6 +53,34 @@ solve :-
 	           [leroy, LeroyRose, LeroyItem, LeroyEvent],
 	           [stella, StellaRose, StellaItem, StellaEvent] ],
 
+
+	% Rule # 1
+	member([jeremy, _, _, 'senior prom'], Quadruples),
+	( \+ member([stella, _, _, wedding], Quadruples),
+		member([stella, 'cottage beauty', _, _], Quadruples) ),
+
+
+	% Rule # 2
+	member([hugh, 'pink paradise', _, _], Quadruples),
+	\+ member([hugh, _, _, 'charity auction'], Quadruples),
+	\+ member([hugh, _, _, wedding], Quadruples),
+
+
+	% Rule # 3
+	member([_, _, streamers, 'anniversary party'], Quadruples),
+	member([_, _, balloons, wedding], Quadruples),
+
+
+	% Rule # 4
+	member([_, 'sweet dreams', 'gourmet chocolates', _], Quadruples),
+	\+ member([jeremy, 'mountain bloom', _, _], Quadruples),
+
+
+	% Rule # 5
+	member([leroy, _, _, 'retirement banquet'], Quadruples),
+	member([_, _, candles, 'senior prom'], Quadruples),
+
+
    	tell(ida, IdaRose, IdaItem, IdaEvent),
    	tell(jeremy, JeremyRose, JeremyItem, JeremyEvent),
    	tell(hugh, HughRose, HughItem, HughEvent),
@@ -66,3 +94,5 @@ solve :-
 all_different([H|T]) :- member(H, T), !, fail. 
 all_different([_|T]) :- all_different(T).
 all_different([_]).
+
+member([_, _, _, _], Quadruples)
